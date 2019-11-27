@@ -102,9 +102,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="dependencies\Microsoft.Xrm.Tooling.Dmt.DataMigCommon.dll" />
-    <Content Include="dependencies\Microsoft.Xrm.Tooling.Dmt.ExportProcessor.dll" />
-    <Content Include="dependencies\Microsoft.Xrm.Tooling.Dmt.MetadataHandler.dll" />
+    <Content Include="dependencies\Microsoft.Xrm.Tooling.Dmt.DataMigCommon.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="dependencies\Microsoft.Xrm.Tooling.Dmt.ExportProcessor.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="dependencies\Microsoft.Xrm.Tooling.Dmt.MetadataHandler.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
