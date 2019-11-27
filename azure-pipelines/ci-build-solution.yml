@@ -25,29 +25,25 @@ steps:
 - task: kherzog.AssemblyInfoReader.assembly-info-reader-build-task.AssembyInfoReader@2
   displayName: 'Generate Variables from Assembly Info'
 
-- task: NuGetToolInstaller@0
-  displayName: 'Use NuGet 4.4.1'
-  inputs:
-    versionSpec: 4.4.1
-
 - task: NuGetCommand@2
-  displayName: 'NuGet restore'
-  inputs:
-    restoreSolution: '$(Parameters.solution)'
+  displayName: 'Restore NuGet Packages'
 
 - task: VSBuild@1
-  displayName: 'Build solution **\*.sln'
+  displayName: 'Build Solution'
   inputs:
-    solution: '$(Parameters.solution)'
+    vsVersion: 15.0
     platform: '$(BuildPlatform)'
     configuration: '$(BuildConfiguration)'
 
 - task: VSTest@2
-  displayName: 'VsTest - testAssemblies'
+  displayName: 'Test Assemblies'
   inputs:
+    testSelector: 'testAssemblies'
     testAssemblyVer2: |
-     **\$(BuildConfiguration)\*test*.dll
-     !**\obj\**
+      **\*test*.dll
+      !**\*TestAdapter.dll
+      !**\obj\**
+    searchFolder: '$(System.DefaultWorkingDirectory)'
     platform: '$(BuildPlatform)'
     configuration: '$(BuildConfiguration)'
 
