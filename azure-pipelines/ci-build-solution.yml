@@ -50,14 +50,14 @@ steps:
 - task: NuGetCommand@2
   displayName: 'NuGet pack - Pre-Release'
   inputs:
-    command: custom
-    arguments: 'pack $(Build.SourcesDirectory)\src\OPC.PowerApps.DataMigration\OPC.PowerApps.DataMigration\OPC.PowerApps.DataMigration.csproj -OutputDirectory $(Build.ArtifactStagingDirectory) -Properties "Configuration=$(BuildConfiguration)" -Version $(AssemblyInfo.AssemblyVersion.Major).$(AssemblyInfo.AssemblyVersion.Minor).$(AssemblyInfo.AssemblyVersion.Build) -Suffix beta'
+    command: 'custom'
+    arguments: 'pack $(Build.SourcesDirectory)\src\OPC.PowerApps.DataMigration\OPC.PowerApps.DataMigration\OPC.PowerApps.DataMigration.csproj -OutputDirectory $(Build.ArtifactStagingDirectory)\pre-release -Properties "Configuration=$(BuildConfiguration)" -Version $(AssemblyInfo.AssemblyVersion.Major).$(AssemblyInfo.AssemblyVersion.Minor).$(AssemblyInfo.AssemblyVersion.Build) -Suffix beta'
 
 - task: NuGetCommand@2
   displayName: 'NuGet pack - Release'
   inputs:
     command: custom
-    arguments: 'pack $(Build.SourcesDirectory)\src\OPC.PowerApps.DataMigration\OPC.PowerApps.DataMigration\OPC.PowerApps.DataMigration.csproj -OutputDirectory $(Build.ArtifactStagingDirectory) -Properties "Configuration=$(BuildConfiguration)" -Version $(AssemblyInfo.AssemblyVersion.Major).$(AssemblyInfo.AssemblyVersion.Minor).$(AssemblyInfo.AssemblyVersion.Build)'
+    arguments: 'pack $(Build.SourcesDirectory)\src\OPC.PowerApps.DataMigration\OPC.PowerApps.DataMigration\OPC.PowerApps.DataMigration.csproj -OutputDirectory $(Build.ArtifactStagingDirectory)\release -Properties "Configuration=$(BuildConfiguration)" -Version $(AssemblyInfo.AssemblyVersion.Major).$(AssemblyInfo.AssemblyVersion.Minor).$(AssemblyInfo.AssemblyVersion.Build)'
 
 - task: PublishSymbols@2
   displayName: 'Publish symbols path'
