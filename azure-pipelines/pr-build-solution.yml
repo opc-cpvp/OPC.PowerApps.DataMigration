@@ -20,7 +20,7 @@ steps:
   displayName: 'Use NuGet 4.4.1'
   inputs:
     versionSpec: 4.4.1
-	
+
 - task: NuGetCommand@2
   displayName: 'Restore NuGet Packages'
 
