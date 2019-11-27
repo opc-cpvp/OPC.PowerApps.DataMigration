@@ -51,13 +51,13 @@ steps:
   displayName: 'NuGet pack - Pre-Release'
   inputs:
     command: 'custom'
-    arguments: 'pack $(Build.SourcesDirectory)\src\OPC.PowerApps.DataMigration\OPC.PowerApps.DataMigration\OPC.PowerApps.DataMigration.csproj -OutputDirectory nupkgs\pre-release -Properties "Configuration=$(BuildConfiguration)" -Version $(AssemblyInfo.AssemblyVersion.Major).$(AssemblyInfo.AssemblyVersion.Minor).$(AssemblyInfo.AssemblyVersion.Build) -Suffix beta'
+    arguments: 'pack $(Build.SourcesDirectory)\src\OPC.PowerApps.DataMigration\OPC.PowerApps.DataMigration\OPC.PowerApps.DataMigration.nuspec -OutputDirectory nupkgs\pre-release -Properties "Configuration=$(BuildConfiguration)" -Version $(AssemblyInfo.AssemblyVersion.Major).$(AssemblyInfo.AssemblyVersion.Minor).$(AssemblyInfo.AssemblyVersion.Build) -Suffix beta'
 
 - task: NuGetCommand@2
   displayName: 'NuGet pack - Release'
   inputs:
     command: custom
-    arguments: 'pack $(Build.SourcesDirectory)\src\OPC.PowerApps.DataMigration\OPC.PowerApps.DataMigration\OPC.PowerApps.DataMigration.csproj -OutputDirectory nupkgs\release -Properties "Configuration=$(BuildConfiguration)" -Version $(AssemblyInfo.AssemblyVersion.Major).$(AssemblyInfo.AssemblyVersion.Minor).$(AssemblyInfo.AssemblyVersion.Build)'
+    arguments: 'pack $(Build.SourcesDirectory)\src\OPC.PowerApps.DataMigration\OPC.PowerApps.DataMigration\OPC.PowerApps.DataMigration.nuspec -OutputDirectory nupkgs\release -Properties "Configuration=$(BuildConfiguration)" -Version $(AssemblyInfo.AssemblyVersion.Major).$(AssemblyInfo.AssemblyVersion.Minor).$(AssemblyInfo.AssemblyVersion.Build)'
 
 - task: PublishSymbols@2
   displayName: 'Publish symbols path'
