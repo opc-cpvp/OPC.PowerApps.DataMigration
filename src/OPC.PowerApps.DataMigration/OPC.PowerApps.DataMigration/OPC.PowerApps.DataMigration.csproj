@@ -102,18 +102,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="dependencies\Microsoft.Xrm.Tooling.Dmt.DataMigCommon.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="dependencies\Microsoft.Xrm.Tooling.Dmt.ExportProcessor.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="dependencies\Microsoft.Xrm.Tooling.Dmt.MetadataHandler.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <None Include="dependencies\Microsoft.Xrm.Tooling.Dmt.DataMigCommon.dll" />
+    <None Include="dependencies\Microsoft.Xrm.Tooling.Dmt.ExportProcessor.dll" />
+    <None Include="dependencies\Microsoft.Xrm.Tooling.Dmt.MetadataHandler.dll" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="OPC.PowerApps.DataMigration.nuspec" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
