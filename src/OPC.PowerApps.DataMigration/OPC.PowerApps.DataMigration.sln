@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29509.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OPC.PowerApps.DataMigration", "OPC.PowerApps.DataMigration\OPC.PowerApps.DataMigration.csproj", "{56A190F5-9A46-4B65-B47B-FC4CD70B8EBE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{56A190F5-9A46-4B65-B47B-FC4CD70B8EBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56A190F5-9A46-4B65-B47B-FC4CD70B8EBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56A190F5-9A46-4B65-B47B-FC4CD70B8EBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56A190F5-9A46-4B65-B47B-FC4CD70B8EBE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {90DEB3B8-C271-4BC2-AB77-5A36CF2006F8}
+	EndGlobalSection
+EndGlobal

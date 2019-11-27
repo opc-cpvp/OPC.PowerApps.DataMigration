@@ -1,0 +1,9 @@
+<entities >
+  <entity name="opc_legislation" displayname="Legislation" etc="10058" primaryidfield="opc_legislationid" primarynamefield="opc_name" disableplugins="false">
+    <fields>
+      <field displayname="Acronym" name="opc_acronym" type="string" customfield="true" />
+      <field displayname="Legislation" name="opc_legislationid" type="guid" primaryKey="true" />
+      <field displayname="Name" name="opc_name" type="string" customfield="true" />
+    </fields>
+  </entity>
+</entities>

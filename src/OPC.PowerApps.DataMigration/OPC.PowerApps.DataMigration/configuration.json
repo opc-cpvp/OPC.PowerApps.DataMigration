@@ -1,0 +1,13 @@
+{
+  "solutions": [
+    {
+      "displayname": "Compliance",
+      "entities": [
+        {
+          "schemaname": "opc_legislation",
+          "fields": [ "opc_legislationid", "opc_acronym", "opc_name" ]
+        }
+      ]
+    }
+  ]
+}
