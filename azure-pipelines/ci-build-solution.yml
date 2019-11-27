@@ -50,20 +50,14 @@ steps:
 - task: NuGetCommand@2
   displayName: 'NuGet pack - Pre-Release'
   inputs:
-    command: 'pack'
-    packagesToPack: '**/*.csproj'
-    packDestination: 'nupkgs\pre-release'
-    versioningScheme: 'off'
-    buildProperties: 'version=$(AssemblyInfo.AssemblyVersion.Major).$(AssemblyInfo.AssemblyVersion.Minor).$(AssemblyInfo.AssemblyVersion.Build)-beta'
+    command: 'custom'
+    arguments: 'pack $(Build.SourcesDirectory)\src\OPC.PowerApps.DataMigration\OPC.PowerApps.DataMigration\OPC.PowerApps.DataMigration.csproj -OutputDirectory nupkgs\pre-release -Properties "Configuration=$(BuildConfiguration)" -Version $(AssemblyInfo.AssemblyVersion.Major).$(AssemblyInfo.AssemblyVersion.Minor).$(AssemblyInfo.AssemblyVersion.Build) -Suffix beta'
 
 - task: NuGetCommand@2
   displayName: 'NuGet pack - Release'
   inputs:
-    command: 'pack'
-    packagesToPack: '**/*.csproj'
-    packDestination: 'nupkgs\release'
-    versioningScheme: 'off'
-    buildProperties: 'version=$(AssemblyInfo.AssemblyVersion.Major).$(AssemblyInfo.AssemblyVersion.Minor).$(AssemblyInfo.AssemblyVersion.Build)'
+    command: custom
+    arguments: 'pack $(Build.SourcesDirectory)\src\OPC.PowerApps.DataMigration\OPC.PowerApps.DataMigration\OPC.PowerApps.DataMigration.csproj -OutputDirectory nupkgs\release -Properties "Configuration=$(BuildConfiguration)" -Version $(AssemblyInfo.AssemblyVersion.Major).$(AssemblyInfo.AssemblyVersion.Minor).$(AssemblyInfo.AssemblyVersion.Build)'
 
 - task: PublishSymbols@2
   displayName: 'Publish symbols path'
