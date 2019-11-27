@@ -1,0 +1,43 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger: none
+
+pr:
+- master
+
+pool:
+  vmImage: 'vs2017-win2016'
+
+variables:
+  BuildPlatform: 'any cpu'
+  BuildConfiguration: 'release'
+
+steps:
+- task: NuGetToolInstaller@0
+  displayName: 'Use NuGet 4.4.1'
+  inputs:
+    versionSpec: 4.4.1
+
+- task: NuGetCommand@2
+  displayName: 'Restore NuGet Packages'
+
+- task: VSBuild@1
+  displayName: 'Build Solution'
+  inputs:
+    vsVersion: 15.0
+    platform: '$(BuildPlatform)'
+    configuration: '$(BuildConfiguration)'
+
+- task: VSTest@2
+  displayName: 'Test Assemblies'
+  inputs:
+    testSelector: 'testAssemblies'
+    testAssemblyVer2: |
+      **\$(BuildConfiguration)\*test*.dll
+      !**\obj\**
+    searchFolder: '$(System.DefaultWorkingDirectory)'
+    platform: '$(BuildPlatform)'
+    configuration: '$(BuildConfiguration)'
