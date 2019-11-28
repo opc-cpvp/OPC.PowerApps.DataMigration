@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>OPC.PowerApps.DataMigration</id>
+    <version>1.0.0</version>
+    <title>OPC.PowerApps.DataMigration</title>
+    <authors>OPC-CPVP</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>OPC.PowerApps.DataMigration</description>
+    <copyright>Copyright 2019</copyright>
+  </metadata>
+  <files>
+	<file src="bin\$configuration$\**" target="lib\net472" />
+  </files>
+</package>
