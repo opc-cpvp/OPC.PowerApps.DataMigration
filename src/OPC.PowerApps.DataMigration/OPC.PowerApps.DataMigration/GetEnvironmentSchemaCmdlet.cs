@@ -14,7 +14,7 @@ using System.Text;
 namespace OPC.PowerApps.DataMigration
 {
     [Cmdlet(VerbsCommon.Get, "EnvironmentSchema")]
-    public class GetEnvironmentSchemaCmdlet : Cmdlet
+    public class GetEnvironmentSchemaCmdlet : PSCmdlet
     {
         [Parameter(Mandatory = true)]
         public PSCredential Credentials { get; set; }
@@ -38,6 +38,9 @@ namespace OPC.PowerApps.DataMigration
         protected override void BeginProcessing()
         {
             base.BeginProcessing();
+
+            // Set the current directory to match PowerShell's current path
+            Directory.SetCurrentDirectory(SessionState.Path.CurrentFileSystemLocation.Path);
 
             if (!string.IsNullOrEmpty(ConfigurationPath))
                 configuration = MigrationConfiguration.LoadConfiguration(ConfigurationPath);
