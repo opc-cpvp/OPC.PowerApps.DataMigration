@@ -6,10 +6,11 @@
     <title>OPC.PowerApps.DataMigration</title>
     <authors>OPC-CPVP</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <projectUrl>https://github.com/opc-cpvp/OPC.PowerApps.DataMigration</projectUrl>
     <description>OPC.PowerApps.DataMigration</description>
     <copyright>Copyright 2019</copyright>
   </metadata>
   <files>
-	<file src="bin\$configuration$\**" target="lib\net472" />
+	  <file src="bin\$configuration$\**" target="" />
   </files>
 </package>
