@@ -110,7 +110,7 @@ namespace OPC.PowerApps.DataMigration
             else
                 entities = FilterConfigurationEntities();
 
-            return entities;
+            return entities.Distinct().ToList();
         }
 
         private List<Entity> FilterConfigurationEntities()
