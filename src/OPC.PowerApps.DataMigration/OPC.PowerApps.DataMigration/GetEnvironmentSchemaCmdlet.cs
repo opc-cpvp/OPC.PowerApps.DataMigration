@@ -27,6 +27,18 @@ namespace OPC.PowerApps.DataMigration
 
         [Parameter]
         public string ConfigurationPath { get; set; }
+                
+        private string schemaFileName = "schema.xml";
+        
+        [Parameter]
+        public string SchemaFileName { 
+            get {
+                return schemaFileName;
+            }
+            set {
+                schemaFileName = value;
+            }
+        }
 
         private MigrationConfiguration configuration = null;
         private Handler metedataHandler;
@@ -59,7 +71,8 @@ namespace OPC.PowerApps.DataMigration
         {
             var entities = GetEntities();
             var schemaEntities = ConvertSchemaEntities(entities);
-            SerializeSchemaEntities(schemaEntities, SchemaOutputPath);
+            var outputPath = Path.Combine(SchemaOutputPath, SchemaFileName);
+            SerializeSchemaEntities(schemaEntities, outputPath);
         }
 
         private void LoadEnvironmentMetadata()
