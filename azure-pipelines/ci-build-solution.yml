@@ -21,7 +21,6 @@ steps:
   inputs:
     company: 'OPC-CPVP'
     assemblyVersionBuild: '$(Build.BuildId)'
-    fileVersionBuild: '$(Build.BuildId)'
 
 - task: kherzog.AssemblyInfoReader.assembly-info-reader-build-task.AssembyInfoReader@2
   displayName: 'Generate Variables from Assembly Info'
