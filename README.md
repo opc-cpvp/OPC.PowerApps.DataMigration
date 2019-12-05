@@ -17,9 +17,7 @@ git clone https://github.com/opc-cpvp/OPC.PowerApps.DataMigration.git
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
+After compiling the class library, simply install the module using the following command:
 
 ```
 PS> Import-Module OPC.PowerApps.DataMigration.dll
