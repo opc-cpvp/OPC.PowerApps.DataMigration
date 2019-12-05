@@ -57,7 +57,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 * **OPC-CPVP** - *Initial work* - [OPC-CPVP](https://github.com/opc-cpvp)
 
-See also the list of [contributors](https://github.com/opc-cpvp/OPC.PowerApps.BuildTools/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/opc-cpvp/OPC.PowerApps.DataMigration/contributors) who participated in this project.
 
 ## License
 
