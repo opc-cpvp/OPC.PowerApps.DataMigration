@@ -37,7 +37,6 @@ steps:
 
 - task: VSTest@2
   displayName: 'Test Assemblies'
-  enabled: false
   inputs:
     testSelector: 'testAssemblies'
     testAssemblyVer2: |
