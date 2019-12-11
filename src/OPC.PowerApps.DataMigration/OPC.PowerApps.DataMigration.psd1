@@ -76,7 +76,8 @@ FunctionsToExport = @()
 
 # Cmdlets to export from this module
 CmdletsToExport = @(
-  'Get-EnvironmentSchema'
+  'Get-EnvironmentSchema',
+  'Get-EnvironmentData'
 )
 
 # Variables to export from this module

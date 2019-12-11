@@ -27,18 +27,9 @@ namespace OPC.PowerApps.DataMigration
 
         [Parameter]
         public string ConfigurationPath { get; set; }
-                
-        private string schemaFileName = "schema.xml";
-        
+
         [Parameter]
-        public string SchemaFileName { 
-            get {
-                return schemaFileName;
-            }
-            set {
-                schemaFileName = value;
-            }
-        }
+        public string SchemaFileName { get; set; } = "schema.xml";
 
         private MigrationConfiguration configuration = null;
         private Handler metedataHandler;

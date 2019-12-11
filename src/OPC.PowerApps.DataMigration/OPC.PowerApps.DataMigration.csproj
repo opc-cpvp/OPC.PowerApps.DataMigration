@@ -59,6 +59,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>dependencies\Microsoft.Xrm.Tooling.Dmt.DataMigCommon.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Xrm.Tooling.Dmt.ExportProcessor, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dependencies\Microsoft.Xrm.Tooling.Dmt.ExportProcessor.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Xrm.Tooling.Dmt.MetadataHandler, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>dependencies\Microsoft.Xrm.Tooling.Dmt.MetadataHandler.dll</HintPath>
@@ -97,6 +101,7 @@
   <ItemGroup>
     <Compile Include="Configuration\EntityConfiguration.cs" />
     <Compile Include="Configuration\SolutionConfiguration.cs" />
+    <Compile Include="GetEnvironmentDataCmdlet.cs" />
     <Compile Include="GetEnvironmentSchemaCmdlet.cs" />
     <Compile Include="Configuration\MigrationConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
