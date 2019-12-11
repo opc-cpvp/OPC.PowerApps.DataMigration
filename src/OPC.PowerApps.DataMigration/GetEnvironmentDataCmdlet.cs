@@ -46,6 +46,7 @@ namespace OPC.PowerApps.DataMigration
             {
                 var dataHandler = new ExportCrmDataHandler(crmServiceClient);
                 var dataPath = Path.Combine(DataOutputPath, DataFileName);
+                WriteVerbose($"Exporting data file to: {dataPath}");
                 dataHandler.ExportData(SchemaPath, dataPath);
             }
         }
