@@ -44,6 +44,15 @@ Get-EnvironmentSchema
 PS> $cred = Get-Credential
 PS> Get-EnvironmentSchema -EnvironmentUrl "https://<environment-name>.crm3.dynamics.com/" -Credentials $cred -SchemaOutputPath . -ConfigurationPath "configuration.json" -SchemaFileName "environment_schema.xml"
 ```
+### Get-EnvironmentData
+
+This command is used to extract the data for a given environment.
+
+#### Example
+```
+PS> $cred = Get-Credential
+PS> Get-EnvironmentData -EnvironmentUrl "https://<environment-name>.crm3.dynamics.com/" -Credentials $cred -SchemaPath "SchemaFile.xml" -DataOutputPath . -DataFileName "data.zip"
+```
 
 ## Built With
 
