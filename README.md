@@ -48,6 +48,16 @@ PS> Get-EnvironmentSchema -EnvironmentUrl "https://<environment-name>.crm3.dynam
 
 This command is used to extract the data for a given environment.
 
+```
+Get-EnvironmentData
+    -EnvironmentUrl <String>
+    -Credentials <PSCredential>
+    -SchemaPath <String>
+    -DataOutputPath <String>
+    [-DataFileName <String>]
+    [<CommonParameters>]
+```
+
 #### Example
 ```
 PS> $cred = Get-Credential
