@@ -99,7 +99,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configuration\EntityConfiguration.cs" />
     <Compile Include="Configuration\SolutionConfiguration.cs" />
     <Compile Include="GetEnvironmentDataCmdlet.cs" />
     <Compile Include="GetEnvironmentSchemaCmdlet.cs" />

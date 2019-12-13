@@ -110,17 +110,17 @@ namespace OPC.PowerApps.DataMigration
             var entities = new List<Entity>();
             foreach (var solutionConfiguration in configuration.Solutions)
             {
-                WriteVerbose($"Searching for solution: {solutionConfiguration.DisplayName}");
+                WriteVerbose($"Searching for solution: {solutionConfiguration.Name}");
                 // Find the solution that matches our configuration
-                var solutionInformation = environmentMetadata.Keys.FirstOrDefault(k => k.DisplayName == solutionConfiguration.DisplayName);
+                var solutionInformation = environmentMetadata.Keys.FirstOrDefault(k => k.DisplayName == solutionConfiguration.Name);
 
                 if (solutionInformation is null)
                 {
-                    WriteWarning($"Failed to find solution: {solutionConfiguration.DisplayName}");
+                    WriteWarning($"Failed to find solution: {solutionConfiguration.Name}");
                     continue;
                 }
 
-                WriteVerbose($"Found solution: {solutionConfiguration.DisplayName}");
+                WriteVerbose($"Found solution: {solutionConfiguration.Name}");
                 WriteVerbose("Filter configuration entities");                
 
                 if (!solutionConfiguration.Entities.Any())
@@ -132,64 +132,19 @@ namespace OPC.PowerApps.DataMigration
                 var solutionEntities = environmentMetadata[solutionInformation];
                 foreach (var entityConfiguration in solutionConfiguration.Entities)
                 {
-                    WriteVerbose($"Searching for entity: {entityConfiguration.SchemaName}");
+                    WriteVerbose($"Searching for entity: {entityConfiguration}");
 
                     // Find the entity that matches our solution configuration
-                    var entity = solutionEntities.FirstOrDefault(e => e.SchemaName == entityConfiguration.SchemaName);
+                    var entity = solutionEntities.FirstOrDefault(e => e.SchemaName == entityConfiguration);
 
                     if (entity is null)
                     {
-                        WriteWarning($"Failed to find entity: {entityConfiguration.SchemaName}");
+                        WriteWarning($"Failed to find entity: {entityConfiguration}");
                         continue;
                     }
 
-                    WriteVerbose($"Found entity: {entityConfiguration.SchemaName}");
-                    WriteVerbose("Filter configuration entities");
-                    // Create a new entity that will have the filtered fields
-                    var filteredEntity = new Entity
-                    {
-                        MetadataId = entity.MetadataId,
-                        SchemaName = entity.SchemaName,
-                        DisplayName = entity.DisplayName,
-                        PrimaryIdName = entity.PrimaryIdName,
-                        PrimaryFieldName = entity.PrimaryFieldName,
-                        ETC = entity.ETC,
-                        IsActivity = entity.IsActivity,
-                        OwnershipType = entity.OwnershipType
-                    };                    
-                    
-                    var fields = new ObservableCollection<Field>();
-                    if (entityConfiguration.Fields.Any())
-                    {
-                        // Filter the fields to match the ones from our entity configuration
-                        foreach (var configurationField in entityConfiguration.Fields)
-                        {
-                            var field = entity.Fields.FirstOrDefault(f => f.SchemaName == configurationField);
-
-                            if (field is null)
-                            {
-                                WriteWarning($"Failed to find field: {configurationField}");
-                                continue;
-                            }
-
-                            WriteVerbose($"Found field: {configurationField}");
-                            fields.Add(field);
-                        }
-                    } 
-                    else
-                    {
-                        WriteVerbose($"No field filters specified in configuration.");
-
-                        // Add all fields to the filtered entity
-                        foreach (var field in entity.Fields)
-                        {
-                            WriteVerbose($"Found field: {field.SchemaName}");
-                            fields.Add(field);
-                        }
-                    }
-
-                    filteredEntity.Fields = fields;
-                    entities.Add(filteredEntity);
+                    WriteVerbose($"Found entity: {entityConfiguration}");
+                    entities.Add(entity);
                 }
             }
 
