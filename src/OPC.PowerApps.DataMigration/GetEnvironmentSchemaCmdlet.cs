@@ -121,7 +121,7 @@ namespace OPC.PowerApps.DataMigration
                 }
 
                 WriteVerbose($"Found solution: {solutionConfiguration.Name}");
-                WriteVerbose("Filter configuration entities");                
+                WriteVerbose("Filter configuration entities");
 
                 if (!solutionConfiguration.Entities.Any())
                 {
@@ -135,7 +135,7 @@ namespace OPC.PowerApps.DataMigration
                     WriteVerbose($"Searching for entity: {entityConfiguration}");
 
                     // Find the entity that matches our solution configuration
-                    var entity = solutionEntities.FirstOrDefault(e => e.SchemaName == entityConfiguration);
+                    var entity = solutionEntities.FirstOrDefault(e => e.SchemaName == entityConfiguration.Name);
 
                     if (entity is null)
                     {
@@ -161,6 +161,10 @@ namespace OPC.PowerApps.DataMigration
                 etc = e.ETC,
                 primaryidfield = e.PrimaryIdName,
                 primarynamefield = e.PrimaryFieldName,
+                disableplugins = configuration.Solutions.SelectMany(s => s.Entities).First(se => se.Name == e.SchemaName).DisablePluginsField,
+                skipupdate = configuration.Solutions.SelectMany(s => s.Entities).First(se => se.Name == e.SchemaName).SkipUpdateField,
+                skipupdateSpecified = configuration.Solutions.SelectMany(s => s.Entities).First(se => se.Name == e.SchemaName).SkipUpdateFieldSpecified,
+                filter = configuration.Solutions.SelectMany(s => s.Entities).First(se => se.Name == e.SchemaName).Filter,
                 fields = e.Fields.Select(f => new entitiesEntityField
                 {
                     displayname = f.DisplayName,
