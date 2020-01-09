@@ -112,7 +112,7 @@ namespace OPC.PowerApps.DataMigration
             {
                 WriteVerbose($"Searching for solution: {solutionConfiguration.Name}");
                 // Find the solution that matches our configuration
-                var solutionInformation = environmentMetadata.Keys.FirstOrDefault(k => k.DisplayName == solutionConfiguration.Name);
+                var solutionInformation = environmentMetadata.Keys.FirstOrDefault(k => k.UniqueName == solutionConfiguration.Name);
 
                 if (solutionInformation is null)
                 {
