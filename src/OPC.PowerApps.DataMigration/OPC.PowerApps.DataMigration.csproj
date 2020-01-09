@@ -99,16 +99,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration\EntityConfiguration.cs" />
     <Compile Include="Configuration\SolutionConfiguration.cs" />
     <Compile Include="GetEnvironmentDataCmdlet.cs" />
     <Compile Include="GetEnvironmentSchemaCmdlet.cs" />
     <Compile Include="Configuration\MigrationConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="dependencies\Microsoft.Xrm.Tooling.Dmt.DataMigCommon.dll" />
-    <None Include="dependencies\Microsoft.Xrm.Tooling.Dmt.ExportProcessor.dll" />
-    <None Include="dependencies\Microsoft.Xrm.Tooling.Dmt.MetadataHandler.dll" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -121,6 +117,10 @@
     </None>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="dependencies\Microsoft.Xrm.Tooling.Dmt.DataMigCommon.dll" />
+    <Content Include="dependencies\Microsoft.Xrm.Tooling.Dmt.ExportProcessor.dll" />
+    <Content Include="dependencies\Microsoft.Xrm.Tooling.Dmt.MetadataHandler.dll" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
