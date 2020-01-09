@@ -35,7 +35,7 @@ namespace OPC.PowerApps.DataMigration
             base.BeginProcessing();
 
             // Set the current directory to match PowerShell's current path
-            Directory.SetCurrentDirectory(SessionState.Path.CurrentFileSystemLocation.Path);      
+            Directory.SetCurrentDirectory(SessionState.Path.CurrentFileSystemLocation.Path);
         }
 
         protected override void ProcessRecord()
@@ -45,8 +45,10 @@ namespace OPC.PowerApps.DataMigration
             using (var crmServiceClient = new CrmServiceClient(connectionString) { ForceServerMetadataCacheConsistency = true })
             {
                 var dataHandler = new ExportCrmDataHandler(crmServiceClient);
+
                 var dataPath = Path.Combine(DataOutputPath, DataFileName);
                 WriteVerbose($"Exporting data file to: {dataPath}");
+
                 dataHandler.ExportData(SchemaPath, dataPath);
             }
         }
